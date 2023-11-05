@@ -8,12 +8,12 @@ def validate_board(board: list[str]) -> bool:
     '''
     # Checks for repetition in a string.
     for item in board:
-        line = ''
+        line_1 = ''
         for j in item:
-            if j in line:
+            if j.isdigit() and j in line_1:
                 return False
-            if not j in ('*', ' '):
-                line += j
+            line_1 += j
+
     return True
 
 if __name__ == '__main__':
