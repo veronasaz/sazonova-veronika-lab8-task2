@@ -55,6 +55,22 @@ def validate_board(board: list[str]) -> bool:
                 return False
             line_2 += j
 
+    # Checks for repetition in a block.
+    n = 0
+    p = 4
+    while p >= 0:
+        block = ''
+        for j in range(0+n, 5+n):
+            block += board[j][p]
+        block += board[4+n][5-n:9-n]
+        line_3 = ''
+        for i in block:
+            if i.isdigit() and i in line_3:
+                return False
+            line_3 += i
+        n += 1
+        p -= 1
+
     return True
 
 if __name__ == '__main__':
