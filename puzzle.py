@@ -1,4 +1,4 @@
-'''Task 2'''
+'''Lab task 2'''
 
 def validate_board(board: list[str]) -> bool:
     '''Check if the board iis valid for a game.
@@ -13,6 +13,15 @@ def validate_board(board: list[str]) -> bool:
             if j.isdigit() and j in line_1:
                 return False
             line_1 += j
+
+    # Checks for repetition in a column.
+    for i in range(len(board[0])):
+        column = [board[item][i] for item in range(9)]
+        line_2 = ''
+        for j in column:
+            if j.isdigit() and j in line_2:
+                return False
+            line_2 += j
 
     return True
 
